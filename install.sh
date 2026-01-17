@@ -64,10 +64,26 @@ echo "
 sudo pacman -S --needed --noconfirm \
     python \
     python-pip \
-    texlive-most \
-    texlive-lang \
-    texstudio \
     kate
+
+# Install comprehensive LaTeX
+echo "
+=== Installing LaTeX (Comprehensive) ==="
+sudo pacman -S --needed --noconfirm \
+    texlive-basic \
+    texlive-bin \
+    texlive-binextra \
+    texlive-latex \
+    texlive-latexrecommended \
+    texlive-latexextra \
+    texlive-mathscience \
+    texlive-fontsrecommended \
+    texlive-fontsextra \
+    texlive-publishers \
+    texlive-pictures \
+    texlive-bibtexextra \
+    texlive-langenglish \
+    texstudio
 
 # Install Python packages
 echo "
@@ -77,17 +93,22 @@ pip install --user numpy pandas matplotlib seaborn scikit-learn jupyter python-l
 # Install Communication Apps
 echo "
 === Installing Communication Apps ==="
-yay -S --needed --noconfirm \
-    discord \
-    zoom
-
 sudo pacman -S --needed --noconfirm \
-    syncthing
+    syncthing \
+    signal-desktop \
+    discord
+
+yay -S --needed --noconfirm \
+    zoom \
+    localsend-bin
 
 # Install VPN
 echo "
 === Installing ProtonVPN ==="
-sudo pacman -S --needed --noconfirm protonvpn-gtk-app gnome-keyring network-manager-applet
+sudo pacman -S --needed --noconfirm \
+    protonvpn-gtk-app \
+    gnome-keyring \
+    network-manager-applet
 
 # Install Music Management
 echo "
@@ -106,14 +127,19 @@ yay -S --needed --noconfirm obsidian
 # Install Keyboard Support
 echo "
 === Installing ZSA Voyager Support ==="
-yay -S --needed --noconfirm keymapp-bin
+yay -S --needed --noconfirm zsa-keymapp-bin
 
 # Install Offline Wiki & reMarkable Tools
 echo "
 === Installing Reading Tools ==="
-yay -S --needed --noconfirm \
-    kiwix-desktop \
-    rmapi
+sudo pacman -S --needed --noconfirm kiwix-desktop
+
+yay -S --needed --noconfirm rmapi
+
+# Install Utilities
+echo "
+=== Installing Utilities ==="
+sudo pacman -S --needed --noconfirm p7zip
 
 # Install Emulators
 echo "
@@ -122,14 +148,13 @@ sudo pacman -S --needed --noconfirm \
     retroarch \
     retroarch-assets-ozone \
     retroarch-assets-xmb \
-    pcsx2 \
     dolphin-emu
 
 yay -S --needed --noconfirm \
     rpcs3-bin \
     cemu \
-    xemu \
-    shadps4-git
+    xemu-bin \
+    pcsx2
 
 # Install Media Tools
 echo "
@@ -137,20 +162,14 @@ echo "
 sudo pacman -S --needed --noconfirm \
     calibre \
     k3b \
-    handbrake \
-    asunder
+    handbrake
+
+yay -S --needed --noconfirm asunder
 
 # Install Steam
 echo "
 === Installing Steam ==="
 sudo pacman -S --needed --noconfirm steam
-
-# Install Power Management
-echo "
-=== Installing Power Management ==="
-sudo pacman -S --needed --noconfirm tlp tlp-rdw
-sudo systemctl enable tlp.service
-sudo systemctl start tlp.service
 
 # Install Fonts
 echo "
@@ -164,14 +183,21 @@ sudo pacman -S --needed --noconfirm \
 # Set up Docker services
 echo "
 === Setting Up Docker Services ==="
+mkdir -p ~/.local/share/docker-data/jellyfin/{config,cache}
+mkdir -p ~/.local/share/docker-data/navidrome
+mkdir -p ~/.local/share/docker-data/southwest-checkin
+mkdir -p ~/.local/share/docker-data/portainer
 mkdir -p ~/docker-services
+
 cp ~/dotfiles/docker-compose.yml ~/docker-services/
 
-# Create Docker config directories
-mkdir -p ~/jellyfin-config
-mkdir -p ~/jellyfin-cache
-mkdir -p ~/navidrome-data
-mkdir -p ~/southwest-checkin
+# Pull Docker images
+echo "
+=== Pulling Docker Images ==="
+docker pull jdholtz/auto-southwest-check-in
+docker pull jellyfin/jellyfin
+docker pull deluan/navidrome
+docker pull portainer/portainer-ce
 
 # Set up Syncthing
 echo "
@@ -188,9 +214,10 @@ IMPORTANT NEXT STEPS:"
 echo "1. Log out and back in for Docker group to take effect"
 echo "2. Run: sudo tailscale up"
 echo "3. Configure Syncthing at http://localhost:8384"
-echo "4. Edit ~/docker-services/docker-compose.yml with credentials"
-echo "5. Update HDD mount paths in docker-compose.yml"
-echo "6. cd ~/docker-services && docker-compose up -d"
+echo "4. Edit ~/docker-services/docker-compose.yml with:"
+echo "   - Southwest credentials"
+echo "   - HDD mount paths"
+echo "5. cd ~/docker-services && docker-compose up -d"
 echo "
 Access web interfaces:"
 echo "  Syncthing:  http://localhost:8384"
