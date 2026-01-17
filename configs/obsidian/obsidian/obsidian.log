@@ -1,0 +1,105 @@
+2026-01-15 02:16:33 Loading main app package /usr/lib/obsidian/obsidian.asar
+2026-01-15 02:16:33 Checking for update using Github
+2026-01-15 02:16:33 Success.
+2026-01-15 02:16:33 Latest version is 1.11.4
+2026-01-15 02:16:33 App is up to date.
+2026-01-15 17:48:55 Loading main app package /opt/Obsidian/resources/obsidian.asar
+2026-01-15 17:48:55 Checking for update using Github
+2026-01-15 17:48:55 Success.
+2026-01-15 17:48:55 Latest version is 1.11.4
+2026-01-15 17:48:55 Downloading update from https://github.com/obsidianmd/obsidian-releases/releases/download/v1.11.4/obsidian-1.11.4.asar.gz
+2026-01-15 17:48:57 Verifying hash & signature. Size= 8769455
+2026-01-15 17:48:57 Saving file
+2026-01-15 17:48:57 Update complete.
+2026-01-15 19:00:20 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-15 19:00:20 Checking for update using Github
+2026-01-15 19:00:48 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-15 19:00:48 Checking for update using Github
+2026-01-15 19:00:48 Success.
+2026-01-15 19:00:48 Latest version is 1.11.4
+2026-01-15 19:00:48 App is up to date.
+2026-01-15 19:32:17 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-15 19:32:17 Checking for update using Github
+2026-01-15 19:32:17 Success.
+2026-01-15 19:32:17 Latest version is 1.11.4
+2026-01-15 19:32:17 App is up to date.
+2026-01-15 20:35:07 Checking for update using Github
+2026-01-15 20:35:08 Success.
+2026-01-15 20:35:08 Latest version is 1.11.4
+2026-01-15 20:35:08 App is up to date.
+2026-01-16 00:49:59 Checking for update using Github
+2026-01-16 00:50:00 Success.
+2026-01-16 00:50:00 Latest version is 1.11.4
+2026-01-16 00:50:00 App is up to date.
+2026-01-16 01:49:59 Checking for update using Github
+2026-01-16 01:50:00 Success.
+2026-01-16 01:50:00 Latest version is 1.11.4
+2026-01-16 01:50:00 App is up to date.
+2026-01-16 02:49:59 Checking for update using Github
+2026-01-16 02:50:00 Success.
+2026-01-16 02:50:00 Latest version is 1.11.4
+2026-01-16 02:50:00 App is up to date.
+2026-01-16 03:49:59 Checking for update using Github
+2026-01-16 03:50:00 Success.
+2026-01-16 03:50:00 Latest version is 1.11.4
+2026-01-16 03:50:00 App is up to date.
+2026-01-16 04:49:59 Checking for update using Github
+2026-01-16 04:50:00 Success.
+2026-01-16 04:50:00 Latest version is 1.11.4
+2026-01-16 04:50:00 App is up to date.
+2026-01-16 05:49:59 Checking for update using Github
+2026-01-16 05:50:00 Success.
+2026-01-16 05:50:00 Latest version is 1.11.4
+2026-01-16 05:50:00 App is up to date.
+2026-01-17 03:25:18 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-17 03:25:18 Checking for update using Github
+2026-01-17 03:25:18 Success.
+2026-01-17 03:25:18 Latest version is 1.11.4
+2026-01-17 03:25:18 App is up to date.
+2026-01-17 03:35:30 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-17 03:35:49 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-17 03:35:51 Checking for update using Github
+2026-01-17 03:35:51 Success.
+2026-01-17 03:35:51 Latest version is 1.11.4
+2026-01-17 03:35:51 App is up to date.
+2026-01-17 03:39:09 Loading updated app package /home/parzival/.config/obsidian/obsidian-1.11.4.asar
+2026-01-17 03:39:10 Checking for update using Github
+2026-01-17 03:39:10 Success.
+2026-01-17 03:39:10 Latest version is 1.11.4
+2026-01-17 03:39:10 App is up to date.
+2026-01-17 04:39:09 Checking for update using Github
+2026-01-17 04:39:09 Success.
+2026-01-17 04:39:09 Latest version is 1.11.4
+2026-01-17 04:39:09 App is up to date.
+2026-01-17 05:39:09 Checking for update using Github
+2026-01-17 05:39:09 Success.
+2026-01-17 05:39:09 Latest version is 1.11.4
+2026-01-17 05:39:09 App is up to date.
+2026-01-17 06:05:54 Loading main app package /opt/Obsidian/resources/obsidian.asar
+2026-01-17 06:06:45 Checking for update using Github
+2026-01-17 06:06:45 Failed to check for update using Github (net::ERR_FAILED)
+2026-01-17 06:06:45 Checking for update using obsidian.md
+2026-01-17 06:06:45 Failed to check for update using obsidian.md (net::ERR_FAILED)
+2026-01-17 06:12:01 Loading main app package /opt/Obsidian/resources/obsidian.asar
+2026-01-17 06:12:19 Checking for update using Github
+2026-01-17 06:12:19 Failed to check for update using Github (net::ERR_FAILED)
+2026-01-17 06:12:19 Checking for update using obsidian.md
+2026-01-17 06:12:19 Failed to check for update using obsidian.md (net::ERR_FAILED)
+2026-01-17 06:32:15 Loading main app package /opt/Obsidian/resources/obsidian.asar
+2026-01-17 06:33:06 Checking for update using Github
+2026-01-17 06:33:06 Failed to check for update using Github (net::ERR_FAILED)
+2026-01-17 06:33:06 Checking for update using obsidian.md
+2026-01-17 06:33:06 Failed to check for update using obsidian.md (net::ERR_FAILED)
+2026-01-17 15:59:35 Loading main app package /opt/Obsidian/resources/obsidian.asar
+2026-01-17 16:00:26 Checking for update using Github
+2026-01-17 16:00:26 Failed to check for update using Github (net::ERR_FAILED)
+2026-01-17 16:00:26 Checking for update using obsidian.md
+2026-01-17 16:00:26 Failed to check for update using obsidian.md (net::ERR_FAILED)
+2026-01-17 16:59:35 Checking for update using Github
+2026-01-17 16:59:35 Failed to check for update using Github (net::ERR_FAILED)
+2026-01-17 16:59:35 Checking for update using obsidian.md
+2026-01-17 16:59:35 Failed to check for update using obsidian.md (net::ERR_FAILED)
+2026-01-17 17:59:35 Checking for update using Github
+2026-01-17 17:59:35 Failed to check for update using Github (net::ERR_FAILED)
+2026-01-17 17:59:35 Checking for update using obsidian.md
+2026-01-17 17:59:35 Failed to check for update using obsidian.md (net::ERR_FAILED)

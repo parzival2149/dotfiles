@@ -82,7 +82,7 @@ sortRole=0
 viewShade=77,46,91
 
 [lspclient]
-AllowedServerCommandLines=
+AllowedServerCommandLines=/usr/bin/bash-language-server start
 AutoHover=true
 AutoImport=true
 BlockedServerCommandLines=
