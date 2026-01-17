@@ -1,28 +1,199 @@
 #!/bin/bash
-# install.sh - Set up dotfiles and configurations
+# install.sh - Complete system setup for EndeavourOS
 
 set -e
 
-echo "=== Dotfiles Installation ==="
+echo "╔════════════════════════════════════════╗"
+echo "║     System Installation Script         ║"
+echo "╚════════════════════════════════════════╝"
+
+# Check if running on Arch-based system
+if ! command -v pacman &> /dev/null; then
+    echo "Error: This script is for Arch-based systems"
+    exit 1
+fi
+
+# Update system
+echo "
+=== Updating System ==="
+sudo pacman -Syu --noconfirm
+
+# Install yay if not present
+if ! command -v yay &> /dev/null; then
+    echo "
+=== Installing yay ==="
+    sudo pacman -S --needed git base-devel --noconfirm
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay && makepkg -si --noconfirm
+    cd ~
+fi
 
 # Backup existing configs
-echo "→ Backing up existing configs..."
+echo "
+=== Backing Up Existing Configs ==="
 mkdir -p ~/.config-backup
 cp ~/.bashrc ~/.config-backup/ 2>/dev/null || true
 cp ~/.config/kdeglobals ~/.config-backup/ 2>/dev/null || true
 cp ~/.config/katerc ~/.config-backup/ 2>/dev/null || true
 
 # Link configs
-echo "→ Linking configuration files..."
+echo "
+=== Linking Configuration Files ==="
 ln -sf ~/dotfiles/configs/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/configs/kdeglobals ~/.config/kdeglobals
 ln -sf ~/dotfiles/configs/katerc ~/.config/katerc
 
-# Copy docker-compose
-echo "→ Setting up Docker services..."
+# Install Docker
+echo "
+=== Installing Docker ==="
+sudo pacman -S --needed --noconfirm docker docker-compose
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER
+
+# Install Tailscale
+echo "
+=== Installing Tailscale ==="
+sudo pacman -S --needed --noconfirm tailscale
+sudo systemctl enable tailscaled
+sudo systemctl start tailscaled
+
+# Install Development Tools
+echo "
+=== Installing Development Tools ==="
+sudo pacman -S --needed --noconfirm \
+    python \
+    python-pip \
+    texlive-most \
+    texlive-lang \
+    texstudio \
+    kate
+
+# Install Python packages
+echo "
+=== Installing Python Packages ==="
+pip install --user numpy pandas matplotlib seaborn scikit-learn jupyter python-lsp-server
+
+# Install Communication Apps
+echo "
+=== Installing Communication Apps ==="
+yay -S --needed --noconfirm \
+    discord \
+    zoom
+
+sudo pacman -S --needed --noconfirm \
+    syncthing
+
+# Install VPN
+echo "
+=== Installing ProtonVPN ==="
+sudo pacman -S --needed --noconfirm protonvpn-gtk-app gnome-keyring
+
+# Install Music Management
+echo "
+=== Installing Music Tools ==="
+sudo pacman -S --needed --noconfirm \
+    strawberry \
+    picard
+
+yay -S --needed --noconfirm dupeguru
+
+# Install Notes & Productivity
+echo "
+=== Installing Productivity Tools ==="
+yay -S --needed --noconfirm obsidian
+
+# Install Keyboard Support
+echo "
+=== Installing ZSA Voyager Support ==="
+yay -S --needed --noconfirm keymapp-bin
+
+# Install Offline Wiki & reMarkable Tools
+echo "
+=== Installing Reading Tools ==="
+yay -S --needed --noconfirm \
+    kiwix-desktop \
+    rmapi
+
+# Install Emulators
+echo "
+=== Installing Emulators ==="
+sudo pacman -S --needed --noconfirm \
+    retroarch \
+    retroarch-assets-ozone \
+    retroarch-assets-xmb \
+    pcsx2 \
+    dolphin-emu
+
+yay -S --needed --noconfirm \
+    rpcs3-bin \
+    cemu \
+    xemu \
+    shadps4-git
+
+# Install Media Tools
+echo "
+=== Installing Media Tools ==="
+sudo pacman -S --needed --noconfirm \
+    calibre \
+    k3b \
+    handbrake \
+    asunder
+
+# Install Steam
+echo "
+=== Installing Steam ==="
+sudo pacman -S --needed --noconfirm steam
+
+# Install Power Management
+echo "
+=== Installing Power Management ==="
+sudo pacman -S --needed --noconfirm tlp tlp-rdw
+sudo systemctl enable tlp.service
+sudo systemctl start tlp.service
+
+# Install Fonts
+echo "
+=== Installing Fonts ==="
+yay -S --needed --noconfirm ttf-meslo-nerd
+sudo pacman -S --needed --noconfirm \
+    ttf-liberation \
+    noto-fonts \
+    noto-fonts-emoji
+
+# Set up Docker services
+echo "
+=== Setting Up Docker Services ==="
 mkdir -p ~/docker-services
 cp ~/dotfiles/docker-compose.yml ~/docker-services/
 
+# Create Docker config directories
+mkdir -p ~/jellyfin-config
+mkdir -p ~/jellyfin-cache
+mkdir -p ~/navidrome-data
+mkdir -p ~/southwest-checkin
+
+# Set up Syncthing
 echo "
-✓ Installation complete!"
-echo "Restart your terminal for changes to take effect."
+=== Configuring Syncthing ==="
+systemctl --user enable syncthing
+systemctl --user start syncthing
+
+echo "
+╔════════════════════════════════════════╗"
+echo "║   Installation Complete!               ║"
+echo "╚════════════════════════════════════════╝"
+echo "
+IMPORTANT NEXT STEPS:"
+echo "1. Log out and back in for Docker group to take effect"
+echo "2. Run: sudo tailscale up"
+echo "3. Configure Syncthing at http://localhost:8384"
+echo "4. Edit ~/docker-services/docker-compose.yml with credentials"
+echo "5. Update HDD mount paths in docker-compose.yml"
+echo "6. cd ~/docker-services && docker-compose up -d"
+echo "
+Access web interfaces:"
+echo "  Syncthing:  http://localhost:8384"
+echo "  Jellyfin:   http://localhost:8096"
+echo "  Navidrome:  http://localhost:4533"
+echo "  Portainer:  http://localhost:9000"
