@@ -42,6 +42,22 @@ echo "
 ln -sf ~/dotfiles/configs/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/configs/kdeglobals ~/.config/kdeglobals
 ln -sf ~/dotfiles/configs/katerc ~/.config/katerc
+ln -sf ~/dotfiles/configs/kwinrc ~/.config/kwinrc
+ln -sf ~/dotfiles/configs/plasma-org.kde.plasma.desktop-appletsrc ~/.config/plasma-org.kde.plasma.desktop-appletsrc
+
+# Restore TeXstudio config
+if [ -d ~/dotfiles/configs/texstudio ]; then
+    echo "→ Restoring TeXstudio config..."
+    mkdir -p ~/.config/texstudio
+    cp -r ~/dotfiles/configs/texstudio/* ~/.config/texstudio/
+fi
+
+# Restore Obsidian config
+if [ -d ~/dotfiles/configs/obsidian ]; then
+    echo "→ Restoring Obsidian config..."
+    mkdir -p ~/.config/obsidian
+    cp -r ~/dotfiles/configs/obsidian/* ~/.config/obsidian/
+fi
 
 # Install Docker
 echo "
@@ -162,7 +178,10 @@ echo "
 sudo pacman -S --needed --noconfirm \
     calibre \
     k3b \
-    handbrake
+    handbrake \
+    cdrtools \
+    cdrdao \
+    dvd+rw-tools
 
 yay -S --needed --noconfirm asunder
 
