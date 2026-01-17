@@ -87,7 +87,7 @@ sudo pacman -S --needed --noconfirm \
 # Install VPN
 echo "
 === Installing ProtonVPN ==="
-sudo pacman -S --needed --noconfirm protonvpn-gtk-app gnome-keyring
+sudo pacman -S --needed --noconfirm protonvpn-gtk-app gnome-keyring network-manager-applet
 
 # Install Music Management
 echo "
