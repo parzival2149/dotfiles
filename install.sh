@@ -101,11 +101,6 @@ sudo pacman -S --needed --noconfirm \
     texlive-langenglish \
     texstudio
 
-# Install Python packages
-echo "
-=== Installing Python Packages ==="
-pip install --user numpy pandas matplotlib seaborn scikit-learn jupyter python-lsp-server
-
 # Install Communication Apps
 echo "
 === Installing Communication Apps ==="
